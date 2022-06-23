@@ -10,11 +10,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Thu Jun 23 20:09:09 2022
+# Make data base, printed on Thu Jun 23 20:31:49 2022
 
 # Variables
 
- 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
@@ -46,6 +45,7 @@ AUTOJUMP_SOURCED = 1
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
+ 
 JOVIAL_VERSION = 1.1.8
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
@@ -122,7 +122,6 @@ TMPDIR = /var/folders/4p/fgpsy7jx2mn_chsl1yzp9t7m0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
- 
 VSCODE_IPC_HOOK = /Users/an7onie77i/Library/Application Support/Code/1.68.1-main.sock
 # makefile
 MAKEFLAGS = Rrqp
@@ -141,6 +140,7 @@ XPC_SERVICE_NAME = application.com.microsoft.VSCode.38601444.38601450
 # environment
 JOVIAL_PLUGIN_VERSION = 1.1.0
 # environment
+ 
 __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
 # environment
 COMMAND_MODE = unix2003
@@ -194,7 +194,6 @@ all:
 #  File does not exist.
 #  File has not been updated.
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
@@ -224,6 +223,7 @@ makefile:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
+ 
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -252,6 +252,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Thu Jun 23 20:09:09 2022
+# Finished Make data base on Thu Jun 23 20:31:49 2022
 
  

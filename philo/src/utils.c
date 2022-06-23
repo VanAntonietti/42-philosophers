@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 19:09:54 by vantonie          #+#    #+#             */
-/*   Updated: 2022/06/23 20:26:06 by vantonie         ###   ########.fr       */
+/*   Created: 2022/06/23 20:28:33 by vantonie          #+#    #+#             */
+/*   Updated: 2022/06/23 20:28:41 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int main(int argc, char **argv)
+int	ft_atoi(const char *str)
 {
-	t_philo	philo;
+	int	i;
+	int	minus;
+	int	dest;
 
-	if(argc == 5 || argc == 6)
+	i = 0;
+	if (*str == 0)
+		return (0);
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	minus = 1;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		init_struct(&philo, argc, argv);
-		philosophers(&philo);
+		if (str[i] == '-')
+			minus = -minus;
+		i++;
 	}
-	return (0);
+	dest = 0;
+	while ((48 <= str[i]) && (str[i] <= 57))
+	{
+		dest = dest * 10;
+		dest = dest + (str[i] - 48);
+		i++;
+	}
+	return (dest * minus);
 }
