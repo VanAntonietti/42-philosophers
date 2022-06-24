@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Thu Jun 23 20:31:49 2022
+# Make data base, printed on Fri Jun 24 11:12:58 2022
 
 # Variables
 
@@ -50,7 +50,7 @@ JOVIAL_VERSION = 1.1.8
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/4p/fgpsy7jx2mn_chsl1yzp9t7m0000gn/T/vscode-ipc-716169ed-1a9f-49f5-a496-dc1e584bce0b.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/4p/fgpsy7jx2mn_chsl1yzp9t7m0000gn/T/vscode-ipc-c6e61313-bc3f-41f0-876c-896cd9e5dfa2.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -66,7 +66,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.Ged4AUa97s/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.SysAwtqLJF/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -86,7 +86,7 @@ VSCODE_CODE_CACHE_PATH = /Users/an7onie77i/Library/Application Support/Code/Cach
 # environment
 LOGNAME = an7onie77i
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 NVM_CD_FLAGS = -q
 # environment
@@ -140,12 +140,12 @@ XPC_SERVICE_NAME = application.com.microsoft.VSCode.38601444.38601450
 # environment
 JOVIAL_PLUGIN_VERSION = 1.1.0
 # environment
- 
 __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
 # environment
 COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
+ 
 # environment
 HOMEBREW_NO_AUTO_UPDATE = true
 # automatic
@@ -167,7 +167,7 @@ AUTOJUMP_ERROR_PATH = /Users/an7onie77i/Library/autojump/errors.log
 # environment
 LANG = C
 # environment
-VSCODE_PID = 48113
+VSCODE_PID = 1612
 # variable set hash-table stats:
 # Load=76/1024=7%, Rehash=0, Collisions=1/97=1%
 
@@ -177,7 +177,7 @@ VSCODE_PID = 48113
 
 # Directories
 
-# . (device 16777243, inode 40524083): 7 files, no impossibilities.
+# . (device 16777244, inode 40524083): 7 files, no impossibilities.
 
 # 7 files, no impossibilities in 1 directories.
 
@@ -212,6 +212,7 @@ Makefile:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
+ 
 # Not a target:
 makefile:
 #  A default, MAKEFILES, or -include/sinclude makefile.
@@ -223,10 +224,11 @@ makefile:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
- 
 .DEFAULT:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -252,6 +254,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Thu Jun 23 20:31:49 2022
+# Finished Make data base on Fri Jun 24 11:12:58 2022
 
  

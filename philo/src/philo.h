@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:02:56 by vantonie          #+#    #+#             */
-/*   Updated: 2022/06/23 20:43:49 by vantonie         ###   ########.fr       */
+/*   Updated: 2022/06/23 22:14:21 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_philo
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				time_must_eat;
-	int				time;
+	double				time;
 	struct timeval	start;
 	struct timeval	stop;
 	
