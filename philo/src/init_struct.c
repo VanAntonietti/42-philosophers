@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:19:07 by vantonie          #+#    #+#             */
-/*   Updated: 2022/06/23 20:45:20 by vantonie         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:24:41 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_struct(t_philo *philo, int argc, char **argv)
 	philo->time_to_die = ft_atoi(argv[2]);
 	philo->time_to_eat = ft_atoi(argv[3]);
 	philo->time_to_sleep = ft_atoi(argv[4]);
-	if(philo->s_argc == 6)
+	if (philo->s_argc == 6)
 		philo->time_must_eat = ft_atoi(argv[5]);
 	philo->time = 1;
 }
