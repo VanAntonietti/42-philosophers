@@ -14,5 +14,11 @@
 
 void	thread_create(t_philo *philo)
 {
-	
+	int	i;
+	i = 0;
+
+	while(i < philo->time_to_die)
+	{
+		i++;
+	}
 }
