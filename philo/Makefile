@@ -16,7 +16,7 @@ OBJ = $(SRC:.c=.o)
 all:$(NAME)
 
 $(NAME):
-	$(CC) -I . $(FLAGS) $(SRC) -o $(NAME)
+	$(CC) -I . $(FLAGS) $(SRC) -g -pthread -o $(NAME)
 
 clean:
 	rm -f $(NAME)
@@ -25,3 +25,5 @@ fclean: clean
 	rm -f $(OBJ)
 
 re:fclean all
+
+.PHONY: all clean fclean re
