@@ -14,12 +14,13 @@
 
 int	main(int argc, char **argv)
 {
-	t_philo	philo;
+	t_philo	*philo;
 
+	philo = (t_philo *)malloc(sizeof(t_philo));
 	if (argc == 5 || argc == 6)
 	{
-		init_struct(&philo, argc, argv);
-		philosophers(&philo);
+		init_struct(philo, argc, argv);
+		philosophers(philo);
 	}
 	return (0);
 }

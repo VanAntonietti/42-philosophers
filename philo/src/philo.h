@@ -32,9 +32,6 @@ typedef struct s_philo
 	double			time;
 	struct timeval	start;
 	struct timeval	stop;
-	pthread_t		*philo1;
-	pthread_t		*philo2;
-	pthread_t		*philo3;
 }			t_philo;
 
 void	init_struct(t_philo *philo, int argc, char **argv);

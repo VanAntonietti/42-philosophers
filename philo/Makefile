@@ -16,7 +16,7 @@ OBJ = $(SRC:.c=.o)
 all:$(NAME)
 
 $(NAME):
-	$(CC) -I . $(FLAGS) $(SRC) -g -pthread -o $(NAME)
+	$(CC) -I . $(FLAGS) $(SRC) -g3 -pthread -o $(NAME)
 
 clean:
 	rm -f $(NAME)

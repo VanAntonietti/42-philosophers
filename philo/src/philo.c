@@ -17,17 +17,13 @@ void	*time_in_miliseconds(t_philo *philo)
 	gettimeofday(&philo->start, NULL);
 	philo->time = (double)(philo->start.tv_sec * 1000)
 		+ (philo->start.tv_usec / 1000);
-	printf("%f\n", philo->time);
-	pthread_join(*philo->philo1, NULL);
-	pthread_join(*philo->philo2, NULL);
-	pthread_join(*philo->philo3, NULL);
 	return (NULL);
 }
 
 int	philosophers(t_philo *philo)
 {
-	pthread_create(philo->philo1, NULL, time_in_miliseconds(philo), NULL);
-	pthread_create(philo->philo2, NULL, time_in_miliseconds(philo), NULL);
-	pthread_create(philo->philo3, NULL, time_in_miliseconds(philo), NULL);
+	printf("%f\n", philo->time);
+	time_in_miliseconds(philo);
+	printf("%d\n", (int) philo->time);
 	return (0);
 }
