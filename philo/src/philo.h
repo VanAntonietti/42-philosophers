@@ -24,7 +24,7 @@ typedef struct s_philo
 {
 	int				s_argc;
 	char			**s_argv;
-	int				number_of_philosophers;
+	int				n_philosophers;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
@@ -38,4 +38,6 @@ void	init_struct(t_philo *philo, int argc, char **argv);
 int		philosophers(t_philo *philo);
 void	*time_in_miliseconds(t_philo *philo);
 int		ft_atoi(const char *str);
+void	thread_create(t_philo *philo);
+
 #endif

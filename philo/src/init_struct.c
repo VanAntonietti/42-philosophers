@@ -16,7 +16,7 @@ void	init_struct(t_philo *philo, int argc, char **argv)
 {
 	philo->s_argc = argc;
 	philo->s_argv = argv;
-	philo->number_of_philosophers = ft_atoi(argv[1]);
+	philo->n_philosophers = ft_atoi(argv[1]);
 	philo->time_to_die = ft_atoi(argv[2]);
 	philo->time_to_eat = ft_atoi(argv[3]);
 	philo->time_to_sleep = ft_atoi(argv[4]);
