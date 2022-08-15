@@ -6,24 +6,32 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:18:49 by vantonie          #+#    #+#             */
-/*   Updated: 2022/06/24 11:27:08 by vantonie         ###   ########.fr       */
+/*   Updated: 2022/08/15 07:56:25 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*time_in_miliseconds(t_philo *philo)
-{
-	gettimeofday(&philo->start, NULL);
-	philo->time = (double)(philo->start.tv_sec * 1000)
-		+ (philo->start.tv_usec / 1000);
-	return (NULL);
-}
-
 int	philosophers(t_philo *philo)
 {
-	printf("%f\n", philo->time);
-	time_in_miliseconds(philo);
-	printf("%d\n", (int) philo->time);
+	
 	return (0);
 }
+
+void	init_thread(t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	while(i < philo->n_philosophers)
+	{
+		pthread_create(&philo->threads[i], NULL, philosophers, NULL);
+		i++;
+	}
+	while(i > 0)
+	{
+		pthread_join(philo->threads[i], NULL);
+		i--;
+	}
+}
+
