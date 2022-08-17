@@ -33,5 +33,6 @@ void	init_thread(t_philo *philo)
 		pthread_join(philo->threads[i], NULL);
 		i--;
 	}
+	
 }
 
