@@ -11,14 +11,3 @@
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	thread_create(t_philo *philo)
-{
-	// int		i;
-
-	// i = 0;
-	// while(i < philo->n_philosophers)
-	// {
-	// 	pthread_create()
-	// }
-}
