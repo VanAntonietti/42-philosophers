@@ -20,4 +20,26 @@
 # include <pthread.h>
 # include <string.h>
 
+typedef struct s_data
+{
+	int	n_philo;
+	int	time_to_die;
+	int	time_to_eat;
+	int	time_to_sleep;
+	int	times_must_eat;
+}			t_data;
+
+typedef struct s_philo
+{
+	pthread_t		*thread;
+	pthread_mutex_t	*r_fork;
+	pthread_mutex_t	*l_fork;
+	t_data			*data; 
+}			t_philo;
+
+int		ft_atoi(const char *str);
+int		validation(int argc, char **argv);
+void	init(t_data *data, int argc, char **argv);
+
+
 #endif

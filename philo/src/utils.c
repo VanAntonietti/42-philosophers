@@ -12,6 +12,11 @@
 
 #include "philo.h"
 
+int	validation(int argc, char **argv)
+{
+	return(0);
+}
+
 int	ft_atoi(const char *str)
 {
 	int	i;

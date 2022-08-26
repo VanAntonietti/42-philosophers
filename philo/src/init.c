@@ -11,3 +11,22 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	init(t_data *data, int argc, char **argv)
+{
+	if(validation(argv, argc) == 0)
+	{
+		init_data(data, argv, argc);
+		init_forks(data)
+	}
+}
+
+void	init_data(t_data *data, int argc, char **argv)
+{
+	data->n_philo = atoi(argv[1]);
+	data->time_to_die = atoi(argv[2]);
+	data->time_to_eat = atoi(argv[3]);
+	data->time_to_sleep = atoi(argv[4]);
+	if(argc == 6)
+		data->times_must_eat = atoi(argv[5]);
+}
