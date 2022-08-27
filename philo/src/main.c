@@ -17,9 +17,9 @@ int main(int argc, char **argv)
 	t_data	*data;
 	t_philo	*philo;
 
-	if(argc == 5 || argc == 6)
-	{
-		init(data, argc, argv);
-	}
+	data = NULL;
+	philo = NULL;
+	init(data, &philo, argc, argv);
+	philosophers(&philo);
 	return (0);
 }

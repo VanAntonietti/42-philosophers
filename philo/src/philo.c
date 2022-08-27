@@ -11,3 +11,23 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	*routine(void *tmp)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)tmp;
+	printf("%d\n", philo->data->n_philo);
+	return(tmp);
+}
+
+void	philosophers(t_philo **philo)
+{
+	int	i;
+
+	i = 0;
+	while(i < philo[i]->data->n_philo)
+	{
+		pthread_create(philo[i]->thread, NULL, &routine, &philo[i]);
+	}
+}

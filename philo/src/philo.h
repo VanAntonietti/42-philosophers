@@ -20,6 +20,9 @@
 # include <pthread.h>
 # include <string.h>
 
+# define MAX_INT 2147483647
+#define EAT 1
+
 typedef struct s_data
 {
 	int	n_philo;
@@ -31,15 +34,19 @@ typedef struct s_data
 
 typedef struct s_philo
 {
+	int				id;
 	pthread_t		*thread;
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
 	t_data			*data; 
 }			t_philo;
 
-int		ft_atoi(const char *str);
+void	init(t_data *data, t_philo **philo, int argc, char **argv);
+void	init_data(t_data *data, int argc, char **argv);
+void	init_philo(t_data *data, t_philo **philo);
 int		validation(int argc, char **argv);
-void	init(t_data *data, int argc, char **argv);
+int		ft_atoi(const char *str);
+void	philosophers(t_philo **philo);
 
 
 #endif

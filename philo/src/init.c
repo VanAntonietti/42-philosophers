@@ -12,12 +12,12 @@
 
 #include "philo.h"
 
-void	init(t_data *data, int argc, char **argv)
+void	init(t_data *data, t_philo **philo, int argc, char **argv)
 {
-	if(validation(argv, argc) == 0)
+	if(validation(argc, argv) == 0)
 	{
-		init_data(data, argv, argc);
-		init_forks(data)
+		init_data(data, argc, argv);
+		init_philo(data,  philo);
 	}
 }
 
@@ -29,4 +29,16 @@ void	init_data(t_data *data, int argc, char **argv)
 	data->time_to_sleep = atoi(argv[4]);
 	if(argc == 6)
 		data->times_must_eat = atoi(argv[5]);
+}
+
+void	init_philo(t_data *data, t_philo **philo)
+{
+	int	i;
+	philo = malloc(sizeof(t_philo) * data->n_philo);
+	i = 0;
+	while(i < data->n_philo)
+	{
+		philo[i]->data = (void *)&data;
+		i++;
+	}
 }

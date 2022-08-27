@@ -14,6 +14,10 @@
 
 int	validation(int argc, char **argv)
 {
+	if(atoi(argv[2]) > MAX_INT)
+		return(1);
+	if(argc >=7)
+		return(1);
 	return(0);
 }
 
