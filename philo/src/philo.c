@@ -28,7 +28,7 @@ void	philosophers(t_philo **philo)
 	i = 0;
 	while(i < philo[i]->data->n_philo)
 	{
-		pthread_create(philo[i]->thread, NULL, &routine, &philo[i]);
+		pthread_create(&philo[i]->thread, NULL, &routine, &philo[i]);
 		i++;
 	}
 }
