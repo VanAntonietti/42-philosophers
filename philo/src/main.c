@@ -17,9 +17,9 @@ int main(int argc, char **argv)
 	t_data	*data;
 	t_philo	*philo;
 
-	data = NULL;
-	philo = NULL;
+	data = malloc(sizeof(t_data));
 	init(data, &philo, argc, argv);
 	philosophers(&philo);
+	free(data);
 	return (0);
 }
