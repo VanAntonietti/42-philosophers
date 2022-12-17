@@ -4,10 +4,8 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-FILES	=	main.c			\
-			init.c			\
-			utils.c			\
-			philo.c
+FILES	=	main.c \
+			init.c
 
 SRC = $(addprefix src/, $(FILES))
 
