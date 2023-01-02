@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:49 by vantonie          #+#    #+#             */
-/*   Updated: 2022/12/17 01:05:22 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:21:01 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <pthread.h>
 #include <string.h>
 
+typedef pthread_mutex_t t_mutex;
+
 typedef struct s_data
 {
 	int	n_philo;
@@ -27,17 +29,25 @@ typedef struct s_data
 	int time_to_eat;
 	int time_to_sleep;
 	int times_must_eat;
+	int s_argc;
+	char **s_argv;
 }				t_data;
 
 typedef struct s_philo
 {
-	pthread_t	thread;
 	t_data		*data;
+	pthread_t	thread;
+	t_mutex		*fork;
+	int			id;
+	long long	last_meal;
+	int			times_ate;
 }				t_philo;
 
 int		ft_atoi(const char *str);
-int		validation(int argc, char **argv);
+int		validation(t_data *data);
 void	init(t_data *data, int argc, char **argv);
 void	init_data(t_data *data, int argc, char **argv);
+t_philo	*init_philo(t_data *data);
+void	start_philo(t_philo *philo);
 
 #endif

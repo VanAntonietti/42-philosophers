@@ -5,7 +5,9 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
 FILES	=	main.c \
-			init.c
+			init.c \
+			utils.c \
+			philo.c
 
 SRC = $(addprefix src/, $(FILES))
 
@@ -14,7 +16,7 @@ OBJ = $(SRC:.c=.o)
 all:$(NAME)
 
 $(NAME):
-	$(CC) -I . $(FLAGS) $(SRC) -g3 -pthread -o $(NAME)
+	$(CC) -I /src $(FLAGS) $(SRC) -g3 -pthread -o $(NAME)
 
 clean:
 	rm -f $(NAME)
