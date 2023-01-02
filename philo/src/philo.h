@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:49 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/02 16:24:59 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/02 16:35:28 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void		philo_think(t_philo *philo);
 void		philo_sleep(t_philo *philo);
 int			try_eat(t_philo *philo);
 void		*routine(void *arg);
+void		*monitor_routine(void *arg);
 
 
 #endif

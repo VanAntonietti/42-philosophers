@@ -37,7 +37,10 @@ void	philo_think(t_philo *philo)
 
 void	print_action(t_philo *philo, char *action)
 {
+	long long int	time;
+
+	time = current_time() - philo->data->start_time;
 	pthread_mutex_lock(&philo->data->lock_print);
-	printf("%lld %d %s\n", current_time() - philo->data->start_time, philo->id + 1, action);
+	printf("%lld %d %s\n", time, philo->id + 1, action);
 	pthread_mutex_unlock(&philo->data->lock_print);
 }

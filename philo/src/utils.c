@@ -6,8 +6,8 @@ int	validation(t_data *data)
 		printf("Wrong number of philosophers, must be greater than 1\n");
 	else if(data->time_to_die < 40 || data->time_to_eat < 40 || data->time_to_sleep < 40)
 		printf("Time must me greater than 40\n");
-	else if(data->s_argc == 6 && data->times_must_eat >= 1)
-		printf("Times must eat must be greater or equal to 1\n");
+	else if(data->s_argc == 6 && data->times_must_eat < 1)
+		printf("Times must eat must be greater or equalto 1\n");
 	else if (data->s_argc == 5 || data->s_argc == 6)
 	{
 		return (0);

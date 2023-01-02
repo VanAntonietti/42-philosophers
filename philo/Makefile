@@ -8,7 +8,8 @@ FILES	=	main.c \
 			init.c \
 			utils.c \
 			philo.c \
-			philo_actions.c
+			philo_actions.c \
+			monitor.c
 
 SRC = $(addprefix src/, $(FILES))
 

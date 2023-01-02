@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:46 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/02 16:21:07 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/02 16:38:30 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_philo	*init_philo(t_data *data)
 void	start_philo(t_philo *philo)
 {
 	int	i;
+	pthread_t	monitor;
 	
 	i = -1;
 	philo[0].data->start_time = current_time();
@@ -48,11 +49,13 @@ void	start_philo(t_philo *philo)
 	{
 		pthread_create(&philo[i].thread, NULL, &routine, (void *)&philo[i]);
 	}
+	pthread_create(&monitor, NULL, &monitor_routine, (void *)philo);
 	i = -1;
 	while (++i < philo[0].data->n_philo)
 	{
 		pthread_join(philo[i].thread, NULL);
 	}
+	pthread_join(monitor, NULL);
 }
 
 void	*routine(void *arg)
@@ -76,3 +79,4 @@ void	*routine(void *arg)
 	}
 	return (NULL);
 }
+
