@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:46 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/02 15:20:33 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/02 16:21:07 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,41 @@ t_philo	*init_philo(t_data *data)
 	return (philo);
 }
 
- void	start_philo(t_philo *philo)
- {
- }
+void	start_philo(t_philo *philo)
+{
+	int	i;
+	
+	i = -1;
+	philo[0].data->start_time = current_time();
+	while (++i < philo[0].data->n_philo)
+	{
+		pthread_create(&philo[i].thread, NULL, &routine, (void *)&philo[i]);
+	}
+	i = -1;
+	while (++i < philo[0].data->n_philo)
+	{
+		pthread_join(philo[i].thread, NULL);
+	}
+}
+
+void	*routine(void *arg)
+{
+	t_philo	*philo;
+	
+	philo = (t_philo *)arg;
+	// if (philo->data->n_philo == 1)
+	// {
+	// }
+	if (philo->id % 2 == 0)
+		usleep(1400);
+	while (end_dinner(philo) == 0 && philo->data->n_philo != 1)
+	{
+		if(try_eat(philo) == 1 && end_dinner(philo) == 0)
+			philo_sleep(philo);
+		else
+			break;
+		if(end_dinner(philo) == 0)
+			philo_think(philo);
+	}
+	return (NULL);
+}

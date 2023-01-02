@@ -42,3 +42,35 @@ int	ft_atoi(const char *str)
 	}
 	return (dest * minus);
 }
+
+long long	current_time(void)
+{
+	struct	timeval	time;
+	long long		current_time;
+
+	gettimeofday(&time, NULL);
+	current_time = (time.tv_sec * 1000) + (time.tv_usec / 1000);
+	return (current_time);
+}
+
+int	end_dinner(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->data->lock);
+	if (philo->data->dead == 1)
+	{
+	pthread_mutex_unlock(&philo->data->lock);
+		return (1);
+	}
+	else if (philo->times_ate == philo->data->times_must_eat)
+	{
+		pthread_mutex_unlock(&philo->data->lock);
+		return (1);
+	}
+	pthread_mutex_unlock(&philo->data->lock);
+	return (0);
+}
+
+void	mssleep(int time)
+{
+	usleep(time * 1000);
+}

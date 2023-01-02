@@ -27,4 +27,7 @@ void	init_data(t_data *data, int argc, char **argv)
 		data->times_must_eat = ft_atoi(argv[5]);
 	else
 		data->times_must_eat = -1;
+	data->dead = 0;
+	pthread_mutex_init(&data->lock, NULL);
+	pthread_mutex_init(&data->lock_print, NULL);
 }
