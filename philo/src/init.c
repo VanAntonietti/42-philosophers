@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/03 16:03:44 by vantonie          #+#    #+#             */
+/*   Updated: 2023/01/03 16:04:11 by vantonie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	init(t_data *data, int argc, char **argv)
 {
-	t_philo *philo;
+	t_philo	*philo;
+
 	init_data(data, argc, argv);
-	if(validation(data) == 0)
+	if (validation(data) == 0)
 	{
 		philo = init_philo(data);
 		start_philo(philo);

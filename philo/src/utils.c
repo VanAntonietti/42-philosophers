@@ -1,18 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/03 15:59:23 by vantonie          #+#    #+#             */
+/*   Updated: 2023/01/03 16:00:51 by vantonie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	validation(t_data *data)
 {
-	if(data->n_philo < 1)
+	if (data->n_philo < 1)
 		printf("Wrong number of philosophers, must be greater than 1\n");
-	else if(data->time_to_die < 40 || data->time_to_eat < 40 || data->time_to_sleep < 40)
+	else if (data->time_to_die < 40 || data->time_to_eat < 40
+		|| data->time_to_sleep < 40)
 		printf("Time must me greater than 40\n");
-	else if(data->s_argc == 6 && data->times_must_eat < 1)
+	else if (data->s_argc == 6 && data->times_must_eat < 1)
 		printf("Times must eat must be greater or equalto 1\n");
 	else if (data->s_argc == 5 || data->s_argc == 6)
 	{
 		return (0);
 	}
-	return(1);
+	return (1);
 }
 
 int	ft_atoi(const char *str)
@@ -45,7 +58,7 @@ int	ft_atoi(const char *str)
 
 long long	current_time(void)
 {
-	struct	timeval	time;
+	struct timeval	time;
 	long long		current_time;
 
 	gettimeofday(&time, NULL);
@@ -58,7 +71,7 @@ int	end_dinner(t_philo *philo)
 	pthread_mutex_lock(&philo->data->lock);
 	if (philo->data->dead == 1)
 	{
-	pthread_mutex_unlock(&philo->data->lock);
+		pthread_mutex_unlock(&philo->data->lock);
 		return (1);
 	}
 	else if (philo->times_ate == philo->data->times_must_eat)

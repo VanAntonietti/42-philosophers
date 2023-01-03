@@ -6,21 +6,21 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:49 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/02 16:35:28 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/03 15:55:57 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/time.h>
-#include <pthread.h>
-#include <string.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/time.h>
+# include <pthread.h>
+# include <string.h>
 
-typedef pthread_mutex_t t_mutex;
+typedef pthread_mutex_t	t_mutex;
 
 typedef struct s_data
 {
@@ -62,6 +62,5 @@ void		philo_sleep(t_philo *philo);
 int			try_eat(t_philo *philo);
 void		*routine(void *arg);
 void		*monitor_routine(void *arg);
-
 
 #endif

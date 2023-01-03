@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_actions.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/03 15:56:14 by vantonie          #+#    #+#             */
+/*   Updated: 2023/01/03 15:58:16 by vantonie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	try_eat(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->fork[0]);
 	pthread_mutex_lock(&philo->fork[1]);
-	if(end_dinner(philo) == 1)
+	if (end_dinner(philo) == 1)
 	{
 		pthread_mutex_unlock(&philo->fork[0]);
 		pthread_mutex_unlock(&philo->fork[1]);
