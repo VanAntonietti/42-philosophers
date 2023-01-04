@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:46 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/03 16:03:22 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/04 09:02:07 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,6 @@ void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	// if (philo->data->n_philo == 1)
-	// {
-	// }
 	if (philo->id % 2 == 0)
 		usleep(1400);
 	while (end_dinner(philo) == 0 && philo->data->n_philo != 1)

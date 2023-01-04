@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:03:44 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/03 16:04:11 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/04 09:07:54 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,31 @@ void	init_data(t_data *data, int argc, char **argv)
 	data->dead = 0;
 	pthread_mutex_init(&data->lock, NULL);
 	pthread_mutex_init(&data->lock_print, NULL);
+}
+
+static void	ft_free(void **ptr)
+{
+	if (*ptr)
+	{
+		free(*ptr);
+		*ptr = NULL;
+	}
+}
+
+void	dinit(t_data *data, t_philo *philo)
+{
+	int	i;
+
+	i = -1;
+	while (i++ < data->n_philo)
+	{
+		pthread_mutex_destroy(&philo[i].fork[0]);
+		ft_free((void **)&philo[i].fork);
+		ft_free((void **)&philo[i].thread);
+		ft_free((void **)&philo[i].data);
+	}
+	pthread_mutex_destroy(&data->lock);
+	pthread_mutex_destroy(&data->lock_print);
+	ft_free((void **)&philo);
+	ft_free((void **)&data);
 }
