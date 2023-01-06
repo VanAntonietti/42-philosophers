@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:03:44 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/06 16:37:58 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:53:49 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	dinit(t_data *data, t_philo *philo)
 		// printf("dinit: %d\n", i);
 		pthread_mutex_destroy(data->fork[i]);
 		ft_free((void **)&philo[i].fork);
-		// ft_free((void **)&philo[i].thread);
 	}
 	pthread_mutex_destroy(&data->lock);
 	pthread_mutex_destroy(&data->lock_print);
