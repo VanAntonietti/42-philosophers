@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:49 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/06 15:15:00 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:15:11 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_data
 	int			dead;
 	t_mutex		lock;
 	t_mutex		lock_print;
+	t_mutex		**fork;
 }				t_data;
 
 typedef struct s_philo

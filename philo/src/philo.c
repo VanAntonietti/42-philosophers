@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:46 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/04 17:54:34 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:27:06 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,33 @@
 t_philo	*init_philo(t_data *data)
 {
 	t_philo	*philo;
-	t_mutex	*fork;
+	t_mutex	**fork;
 	int		i;
 
 	philo = malloc(data->n_philo * sizeof(t_philo));
-	fork = malloc(data->n_philo * sizeof(t_mutex));
+	fork = malloc(data->n_philo * sizeof(t_mutex *));
 	i = -1;
 	while (++i < data->n_philo)
+	{
+		fork[i] = malloc(sizeof(t_mutex));
+		pthread_mutex_init(fork[i], NULL);
+	}
+	while (--i >= 0)
 	{
 		philo[i].data = data;
 		philo[i].id = i + 1;
 		philo[i].last_meal = 0;
 		philo[i].fork = malloc(2 * sizeof(t_mutex*));
-		philo[i].fork[0] = &fork[i];
-		philo[i].fork[1] = &fork[(i + 1) % data->n_philo];
+		philo[i].fork[0] = fork[i];
+		philo[i].fork[1] = fork[(i + 1) % data->n_philo];
+		if (i == data->n_philo - 1)
+		{
+			philo[i].fork[1] = philo[i].fork[0];
+			philo[i].fork[0] = fork[0];
+		}
 		philo[i].times_ate = 0;
 	}
-	while (--i >= 0)
-	{
-		pthread_mutex_init(&fork[i], NULL);
-	}
+	data->fork = fork;
 	return (philo);
 }
 

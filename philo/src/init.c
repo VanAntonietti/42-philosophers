@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:03:44 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/06 15:14:33 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:37:58 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	init(t_data *data, int argc, char **argv)
 	{
 		philo = init_philo(data);
 		start_philo(philo);
+		dinit(data, philo);
 	}
 	else
 	{
 		printf("Error\n");
 	}
-	dinit(data, philo);
 }
 
 void	init_data(t_data *data, int argc, char **argv)
@@ -60,12 +60,12 @@ void	dinit(t_data *data, t_philo *philo)
 	int	i;
 
 	i = -1;
-	while (i++ < data->n_philo)
+	while (++i < data->n_philo)
 	{
-		pthread_mutex_destroy(philo[i].fork[0]);
+		// printf("dinit: %d\n", i);
+		pthread_mutex_destroy(data->fork[i]);
 		ft_free((void **)&philo[i].fork);
-		ft_free((void **)&philo[i].thread);
-		ft_free((void **)&philo[i].data);
+		// ft_free((void **)&philo[i].thread);
 	}
 	pthread_mutex_destroy(&data->lock);
 	pthread_mutex_destroy(&data->lock_print);

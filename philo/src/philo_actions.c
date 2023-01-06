@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:56:14 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/06 15:23:19 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:58:02 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,8 @@ void	print_action(t_philo *philo, char *action)
 
 void	philo_one(t_philo *philo)
 {
-	cd 
+	pthread_mutex_lock(philo->fork[0]);
+	print_action(philo, "has taken a fork");
+	mssleep(philo->data->time_to_die);
+	pthread_mutex_unlock(philo->fork[0]);
 }
