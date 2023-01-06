@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:53:24 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/03 16:05:36 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/04 15:20:05 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	verify_death(t_philo *monitor, t_data *data)
 	while (++i < data->n_philo)
 	{
 		pthread_mutex_lock(&monitor[i].data->lock);
-		if (current_time() - data->start_time - monitor[i].last_meal
+		if ((current_time() - data->start_time) - monitor[i].last_meal
 			> data->time_to_die
 			&& monitor[i].times_ate != data->times_must_eat)
 		{

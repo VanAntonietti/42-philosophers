@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:46 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/04 09:02:07 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:54:34 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ t_philo	*init_philo(t_data *data)
 	while (++i < data->n_philo)
 	{
 		philo[i].data = data;
-		philo[i].id = i;
+		philo[i].id = i + 1;
 		philo[i].last_meal = 0;
-		philo[i].fork = malloc(2 * sizeof(t_mutex));
-		philo[i].fork[0] = fork[i];
-		philo[i].fork[1] = fork[(i + 1) % data->n_philo];
+		philo[i].fork = malloc(2 * sizeof(t_mutex*));
+		philo[i].fork[0] = &fork[i];
+		philo[i].fork[1] = &fork[(i + 1) % data->n_philo];
 		philo[i].times_ate = 0;
 	}
 	while (--i >= 0)
@@ -61,8 +61,12 @@ void	start_philo(t_philo *philo)
 void	*routine(void *arg)
 {
 	t_philo	*philo;
-
+	
 	philo = (t_philo *)arg;
+	if (philo->data->n_philo == 1)
+	{
+		philo_one(philo);
+	}
 	if (philo->id % 2 == 0)
 		usleep(1400);
 	while (end_dinner(philo) == 0 && philo->data->n_philo != 1)

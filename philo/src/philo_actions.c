@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:56:14 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/03 15:58:16 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:23:19 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	try_eat(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->fork[0]);
-	pthread_mutex_lock(&philo->fork[1]);
+	pthread_mutex_lock(philo->fork[0]);
+	pthread_mutex_lock(philo->fork[1]);
 	if (end_dinner(philo) == 1)
 	{
-		pthread_mutex_unlock(&philo->fork[0]);
-		pthread_mutex_unlock(&philo->fork[1]);
+		pthread_mutex_unlock(philo->fork[0]);
+		pthread_mutex_unlock(philo->fork[1]);
 		return (0);
 	}
 	print_action(philo, "has taken a fork");
@@ -30,8 +30,8 @@ int	try_eat(t_philo *philo)
 	philo->last_meal = current_time() - philo->data->start_time;
 	pthread_mutex_unlock(&philo->data->lock);
 	mssleep(philo->data->time_to_eat);
-	pthread_mutex_unlock(&philo->fork[0]);
-	pthread_mutex_unlock(&philo->fork[1]);
+	pthread_mutex_unlock(philo->fork[0]);
+	pthread_mutex_unlock(philo->fork[1]);
 	return (1);
 }
 
@@ -53,6 +53,11 @@ void	print_action(t_philo *philo, char *action)
 
 	time = current_time() - philo->data->start_time;
 	pthread_mutex_lock(&philo->data->lock_print);
-	printf("%lld %d %s\n", time, philo->id + 1, action);
+	printf("%lld %d %s\n", time, philo->id, action);
 	pthread_mutex_unlock(&philo->data->lock_print);
+}
+
+void	philo_one(t_philo *philo)
+{
+	cd 
 }

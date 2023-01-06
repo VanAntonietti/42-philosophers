@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:49 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/03 15:55:57 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:15:00 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_philo
 {
 	t_data		*data;
 	pthread_t	thread;
-	t_mutex		*fork;
+	t_mutex		**fork;
 	int			id;
 	long long	last_meal;
 	int			times_ate;
@@ -62,5 +62,7 @@ void		philo_sleep(t_philo *philo);
 int			try_eat(t_philo *philo);
 void		*routine(void *arg);
 void		*monitor_routine(void *arg);
+void		dinit(t_data *data, t_philo *philo);
+void		philo_one(t_philo *philo);
 
 #endif

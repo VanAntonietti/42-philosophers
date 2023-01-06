@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:59:23 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/03 16:00:51 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/04 15:23:00 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ long long	current_time(void)
 	long long		current_time;
 
 	gettimeofday(&time, NULL);
-	current_time = (time.tv_sec * 1000) + (time.tv_usec / 1000);
+	current_time = (time.tv_sec * 1000LL) + (time.tv_usec / 1000);
 	return (current_time);
 }
 

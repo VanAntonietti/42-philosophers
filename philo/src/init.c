@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:03:44 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/04 09:07:54 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:14:33 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	init(t_data *data, int argc, char **argv)
 	{
 		printf("Error\n");
 	}
+	dinit(data, philo);
 }
 
 void	init_data(t_data *data, int argc, char **argv)
@@ -61,7 +62,7 @@ void	dinit(t_data *data, t_philo *philo)
 	i = -1;
 	while (i++ < data->n_philo)
 	{
-		pthread_mutex_destroy(&philo[i].fork[0]);
+		pthread_mutex_destroy(philo[i].fork[0]);
 		ft_free((void **)&philo[i].fork);
 		ft_free((void **)&philo[i].thread);
 		ft_free((void **)&philo[i].data);
