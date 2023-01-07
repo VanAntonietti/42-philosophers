@@ -24,18 +24,18 @@ run_test_case() {
 
 	if [[ $EXPECTED_OUTCOME == "should die" ]]
 	then
-		COLOUR_BG="\e[1;31mTest:"
-		FONT_COLOUR_BG="\e[41;30m"
+		COLOUR_BG=$'\e[1;31mTest:'
+		FONT_COLOUR_BG=$'\e[41;30m'
 	else
-		COLOUR_BG="\e[1;32mTest:"
-		FONT_COLOUR_BG="\e[42;30m"
+		COLOUR_BG=$'\e[1;32mTest:'
+		FONT_COLOUR_BG=$'\e[42;30m'
 	fi
 
 	mkdir -p "$RESULTS_FOLDER/$CASE_NO"
-	echo -e "$FONT_COLOUR_BG $CASE_NO: $CASE $EXPECTED_OUTCOME \e[0m"
+	echo -e "$FONT_COLOUR_BG $CASE_NO: $CASE $EXPECTED_OUTCOME \033[0m"
 	while [ $i -le $NB_OF_TESTS ]
 	do
-		echo -e "$COLOUR_BG $i\e[0m"
+		echo -e "$COLOUR_BG $i \033[0m"
 		$BIN_PATH $CASE > "$RESULTS_FOLDER/$CASE_NO/test$i"
 		cat "$RESULTS_FOLDER/$CASE_NO/test$i" | grep 'die'
 		sleep $time

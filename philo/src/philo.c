@@ -6,11 +6,27 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:46 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/06 16:27:06 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/07 11:29:27 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	philo_maker(int i, t_philo *philo, t_data *data, t_mutex **fork)
+{
+	philo[i].data = data;
+	philo[i].id = i + 1;
+	philo[i].last_meal = 0;
+	philo[i].fork = malloc(2 * sizeof(t_mutex *));
+	philo[i].fork[0] = fork[i];
+	philo[i].fork[1] = fork[(i + 1) % data->n_philo];
+	if (i == data->n_philo - 1)
+	{
+		philo[i].fork[1] = philo[i].fork[0];
+		philo[i].fork[0] = fork[0];
+	}
+	philo[i].times_ate = 0;
+}
 
 t_philo	*init_philo(t_data *data)
 {
@@ -28,18 +44,7 @@ t_philo	*init_philo(t_data *data)
 	}
 	while (--i >= 0)
 	{
-		philo[i].data = data;
-		philo[i].id = i + 1;
-		philo[i].last_meal = 0;
-		philo[i].fork = malloc(2 * sizeof(t_mutex*));
-		philo[i].fork[0] = fork[i];
-		philo[i].fork[1] = fork[(i + 1) % data->n_philo];
-		if (i == data->n_philo - 1)
-		{
-			philo[i].fork[1] = philo[i].fork[0];
-			philo[i].fork[0] = fork[0];
-		}
-		philo[i].times_ate = 0;
+		philo_maker(i, philo, data, fork);
 	}
 	data->fork = fork;
 	return (philo);
@@ -68,7 +73,7 @@ void	start_philo(t_philo *philo)
 void	*routine(void *arg)
 {
 	t_philo	*philo;
-	
+
 	philo = (t_philo *)arg;
 	if (philo->data->n_philo == 1)
 	{
