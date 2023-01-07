@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:03:44 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/07 11:22:58 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/07 13:56:20 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 void	init(t_data *data, int argc, char **argv)
 {
 	t_philo	*philo;
+	t_mutex	**fork;
 
 	init_data(data, argc, argv);
+	fork = malloc(data->n_philo * sizeof(t_mutex *));
 	if (validation(data) == 0)
 	{
-		philo = init_philo(data);
+		philo = init_philo(data, fork);
 		start_philo(philo);
-		dinit(data, philo);
+		dinit(data, philo, fork);
 	}
 	else
 	{
@@ -46,7 +48,7 @@ void	init_data(t_data *data, int argc, char **argv)
 	pthread_mutex_init(&data->lock_print, NULL);
 }
 
-static void	ft_free(void **ptr)
+void	ft_free(void **ptr)
 {
 	if (*ptr)
 	{
@@ -55,7 +57,7 @@ static void	ft_free(void **ptr)
 	}
 }
 
-void	dinit(t_data *data, t_philo *philo)
+void	dinit(t_data *data, t_philo *philo, t_mutex **fork)
 {
 	int	i;
 
@@ -63,10 +65,12 @@ void	dinit(t_data *data, t_philo *philo)
 	while (++i < data->n_philo)
 	{
 		pthread_mutex_destroy(data->fork[i]);
+		ft_free((void **)&data->fork[i]);
 		ft_free((void **)&philo[i].fork);
 	}
 	pthread_mutex_destroy(&data->lock);
 	pthread_mutex_destroy(&data->lock_print);
 	ft_free((void **)&philo);
 	ft_free((void **)&data);
+	ft_free((void **)&fork);
 }

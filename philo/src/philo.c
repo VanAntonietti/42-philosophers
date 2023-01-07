@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:46 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/07 11:29:27 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/07 13:55:02 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,12 @@ static void	philo_maker(int i, t_philo *philo, t_data *data, t_mutex **fork)
 	philo[i].times_ate = 0;
 }
 
-t_philo	*init_philo(t_data *data)
+t_philo	*init_philo(t_data *data, t_mutex **fork)
 {
 	t_philo	*philo;
-	t_mutex	**fork;
 	int		i;
 
 	philo = malloc(data->n_philo * sizeof(t_philo));
-	fork = malloc(data->n_philo * sizeof(t_mutex *));
 	i = -1;
 	while (++i < data->n_philo)
 	{

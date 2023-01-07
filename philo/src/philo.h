@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 00:31:49 by vantonie          #+#    #+#             */
-/*   Updated: 2023/01/07 11:22:12 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/01/07 13:54:10 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int			ft_atoi(const char *str);
 int			validation(t_data *data);
 void		init(t_data *data, int argc, char **argv);
 void		init_data(t_data *data, int argc, char **argv);
-t_philo		*init_philo(t_data *data);
+t_philo		*init_philo(t_data *data, t_mutex **fork);
 void		start_philo(t_philo *philo);
 long long	current_time(void);
 int			end_dinner(t_philo *philo);
@@ -63,7 +63,8 @@ void		philo_sleep(t_philo *philo);
 int			try_eat(t_philo *philo);
 void		*routine(void *arg);
 void		*monitor_routine(void *arg);
-void		dinit(t_data *data, t_philo *philo);
+void		dinit(t_data *data, t_philo *philo, t_mutex **fork);
 void		philo_one(t_philo *philo);
+void		ft_free(void **ptr);
 
 #endif
